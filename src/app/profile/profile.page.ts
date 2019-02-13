@@ -9,12 +9,12 @@ import { User } from 'firebase';
 })
 export class ProfilePage implements OnInit {
 
-  userPosts;
+  userPosts
   constructor(
     public afStore: AngularFirestore,
     public user: UserService
   ) { 
-    const posts = afStore.doc(`users/${user.getUid}`);
+    const posts = afStore.doc(`users/${user.getUid()}`);
     this.userPosts = posts.valueChanges();
   }
 

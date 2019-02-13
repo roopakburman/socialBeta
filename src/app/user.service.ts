@@ -22,12 +22,12 @@ export class UserService {
         this.user = user;
     }
 
-    getUid(){
+    getUid() {
         if(!this.user){
             if(this.afAuth.auth.currentUser){
                 const user = this.afAuth.auth.currentUser;
+                
                 this.setUser({
-                    // username: user.email.split('@')[0],
                     username: user.email,
                     uid: user.uid
 
@@ -42,3 +42,23 @@ export class UserService {
         }
     }
 }
+
+
+// username: user.email.split('@')[0],
+        // if(!this.user){
+        //     if(this.afAuth.auth.currentUser){
+        //         const user = this.afAuth.auth.currentUser;
+                
+        //         this.setUser({
+        //             username: user.email,
+        //             uid: user.uid
+
+        //         })
+        //         return user.uid;
+        //     }else {
+        //         console.log('user not logged in!');
+        //         this.router.navigate[('/login')];
+        //     }
+        // }else {
+        //     return this.user.uid;
+        // }
