@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Upload Image</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<div class="camera"></div>
+<!-- Input with placeholder -->
+<ion-input class="fileBtn" *ngIf="!imageURL" placeholder="upload your images" type="file" (change)="fileChanged($event)" #fileUpload></ion-input>
+
+<ion-button shape="round" color="primary" (change)="fileChanged($event)" *ngIf="!imageURL" fill="outline">Upload File</ion-button>
+
+
+<ion-card *ngIf="imageURL" >
+    <img src="https://ucarecdn.com/{{imageURL}}/" />
+    <ion-card-content>
+      <ion-textarea placeholder="Enter some description" [(ngModel)]="desc">  </ion-textarea>
+      <ion-button color="primary" shape="round" (click)="createPost()"> CREATE POST </ion-button>
+    </ion-card-content>
+</ion-card>
+
+</ion-content>
