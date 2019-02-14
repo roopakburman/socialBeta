@@ -28,6 +28,10 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
 
+  goToLogin(){
+    this.router.navigate(['/login']);
+  }
+
   async register(){
     const {username, password, cpassword} = this;
 

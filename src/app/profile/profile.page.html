@@ -5,15 +5,12 @@
 </ion-header>
 
 <ion-content padding>
-<div class="images">
-  <div class="image" *ngFor="let post of(userPosts | async)?.posts">
-    
-    <ion-card color="primary">
-      <ion-img src = 'https://ucarecdn.com/{{post.image}}/-/crop/200x200/center/'></ion-img>
-    </ion-card>
-    <ion-content>
-      <p>{{post.desc}}</p>
-    </ion-content>
+  <div class="images">
+    <div class="image" *ngFor="let post of(userPosts | async)?.posts">
+      <ion-card color="light" (click)="goToPost(post)">
+        <ion-img src='https://ucarecdn.com/{{post}}/-/scale_crop/200x200/center/'></ion-img>
+        <!-- <ion-label>{{post.desc}}</ion-label> -->
+      </ion-card>
+    </div>
   </div>
-</div> 
 </ion-content>

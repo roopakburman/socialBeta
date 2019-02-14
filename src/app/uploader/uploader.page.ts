@@ -17,7 +17,7 @@ export class UploaderPage implements OnInit {
   imageURL: string;
   desc: string;
 
-  @ViewChild('fileUpload') fileUpload;
+  @ViewChild('fileButton') fileButton;
   constructor(
     public http: Http,
     public afStore: AngularFirestore,
@@ -35,20 +35,24 @@ export class UploaderPage implements OnInit {
     const desc = this.desc;
 
     this.afStore.doc(`users/${this.user.getUid()}`).update({
-      posts: firestore.FieldValue.arrayUnion({
-        image,
-        desc
-      })
+      posts: firestore.FieldValue.arrayUnion(image)
     })
+
+    this.afStore.doc(`posts/${image}`).set({
+      desc,
+      author: this.user.getUserName(),
+      likes: []
+    })
+    
     this.showAlert('Success', 'Your Post Created');
     this.router.navigate[('/feed')];
 
   }
 
-  // uploadFile(){
-  //   this.fileUpload.nativeElement.click();
+  uploadFile(){
+    this.fileButton.nativeElement.click();
 
-  // }
+  }
 
   fileChanged(event){
     const files = event.target.files;

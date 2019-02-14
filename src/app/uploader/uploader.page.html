@@ -7,9 +7,9 @@
 <ion-content padding>
 <div class="camera"></div>
 <!-- Input with placeholder -->
-<ion-input class="fileBtn" *ngIf="!imageURL" placeholder="upload your images" type="file" (change)="fileChanged($event)" #fileUpload></ion-input>
+<ion-input shape="round" color="primary" fill="outline" class="fileBtn" *ngIf="!imageURL" placeholder="upload your images" type="file" (change)="fileChanged($event)" #fileButton></ion-input>
 
-<ion-button shape="round" color="primary" (change)="fileChanged($event)" *ngIf="!imageURL" fill="outline">Upload File</ion-button>
+<!-- <ion-button shape="round" color="primary" (change)="fileChanged($event)" *ngIf="!imageURL" fill="outline">Upload File</ion-button> -->
 
 
 <ion-card *ngIf="imageURL" >

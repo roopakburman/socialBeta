@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>post</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngIf="post | async as postData" color="light">
+    <ion-img src='https://ucarecdn.com/{{postID}}/'></ion-img>
+
+    
+
+    <ion-card-content>
+      <ion-item class="text-wrap" ((click)="toggleHeart()">
+        <ion-icon [name]="heartType"></ion-icon>
+        <ion-label>{{postData.author}} says: {{postData.desc}}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
