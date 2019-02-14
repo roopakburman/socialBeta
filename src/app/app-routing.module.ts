@@ -6,7 +6,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'register', pathMatch: 'full' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
-  { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule', canActivate: [AuthService] },
+  { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule', canActivate: [AuthService] }
   
   // { path: 'feed', loadChildren: './feed/feed.module#FeedPageModule' },
   // { path: 'uploader', loadChildren: './uploader/uploader.module#UploaderPageModule' },

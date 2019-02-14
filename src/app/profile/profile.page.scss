@@ -1,16 +1,20 @@
-.images {
+#images {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
     max-width: 100%;
-    width: 606px;
+    // width: 606px;
 }
 
 .image {
     width: 33%;
+    // margin-left: 1px;
+	// margin-right: 1px;
 }
 
-.main-image {
+.main-image, .user-image {
     width: auto;
     height: auto;
+    // width: 200px;
+    // height: 200px;
 }
