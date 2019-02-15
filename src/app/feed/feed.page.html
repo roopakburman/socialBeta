@@ -16,10 +16,18 @@
       <ion-card *ngFor="let post of posts" color="light">
           <ion-img src='https://ucarecdn.com/{{post.id}}/-/preview/{{effect}}'></ion-img>
           <ion-card-content>
-            <ion-item (click)="toggleHeart()">
-              <ion-icon [name]="heartType"></ion-icon>
-              <ion-label>{{posts.author}} says: {{posts.desc}}</ion-label>
-            </ion-item>
+            <!-- <ion-item >  -->
+              <!-- (click)="toggleHeart()" -->
+              <ion-item>
+                  <ion-avatar>
+                      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+                    </ion-avatar>
+                  <!-- <ion-icon name="heart" slot="start"></ion-icon> -->
+                  <ion-label text-wrap>
+                      {{post.author}} says: {{post.desc}} {{post.profilePic}}
+                    </ion-label>
+                </ion-item>
+            <!-- </ion-item> -->
           </ion-card-content>
         </ion-card>
 </ion-content>

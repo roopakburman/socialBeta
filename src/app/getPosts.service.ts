@@ -11,6 +11,8 @@ export interface userPosts {
     desc: string;
     pic: string;
     likes: string;
+    profilePic: string;
+    username: string;
   }
 
 @Injectable()
@@ -33,7 +35,7 @@ export class GetPostsService {
     }
   
     getPosts(){
-      console.log(this.uPosts);
+    //   console.log(this.uPosts);
       return this.uPosts;
     }
   
