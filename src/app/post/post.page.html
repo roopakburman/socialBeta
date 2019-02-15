@@ -1,8 +1,13 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Post</ion-title>
+
+<ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon  slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Your Post</ion-title>
   </ion-toolbar>
-</ion-header>
+  
 
 <ion-content padding>
     <app-loading *ngIf="!post"></app-loading>

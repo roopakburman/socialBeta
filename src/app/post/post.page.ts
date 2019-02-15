@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { UserService } from '../user.service';
 import { firestore } from 'firebase/app';
@@ -20,7 +20,8 @@ export class PostPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private afs: AngularFirestore,
-    private user: UserService
+    private user: UserService,
+    private router: Router
     ) { 
 
   }
@@ -41,7 +42,11 @@ export class PostPage implements OnInit {
     this.sub.unsubscribe();
   }
 
+  goBack(){
+    console.log(this);
+    // this.router.navigate[('/tabs')];
 
+  }
   toggleHeart(){
     // this.heartType = this.heartType == 'heart' ? 'heart-empty' : 'heart';
     if(this.heartType =='heart-empty'){

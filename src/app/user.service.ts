@@ -2,6 +2,9 @@ import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
+import { auth } from 'firebase/app';
+
+
 
 interface user {
     username: string,
@@ -24,16 +27,16 @@ export class UserService {
         this.user = user;
     }
 
-    getUserName(): string{
+    getUserName(): string {
         return this.user.username;
     }
 
-    async isAuthenticated(){
-        if(this.user) return true;
+    async isAuthenticated() {
+        if (this.user) return true;
 
         const user = await this.afAuth.authState.pipe(first()).toPromise();
 
-        if(user){
+        if (user) {
             this.setUser({
                 username: user.email,
                 uid: user.uid
@@ -46,24 +49,20 @@ export class UserService {
     getUid(): string {
         return this.user.uid;
     }
+
+    reAuth(username: string, password: string){
+        return this.afAuth.auth.currentUser.reauthenticateWithCredential(auth.EmailAuthProvider.credential(username, password));
+    }
+    updatePassword(newPassword: string){
+        return this.afAuth.auth.currentUser.updatePassword(newPassword);
+    }
+
+    updateEmail(newEmail: string){
+        return this.afAuth.auth.currentUser.updateEmail(newEmail);
+    }
+
+    // logOut(){
+    //     return this.afAuth.auth.currentUser.
+    // }
 }
 
-
-// username: user.email.split('@')[0],
-        // if(!this.user){
-        //     if(this.afAuth.auth.currentUser){
-        //         const user = this.afAuth.auth.currentUser;
-
-        //         this.setUser({
-        //             username: user.email,
-        //             uid: user.uid
-
-        //         })
-        //         return user.uid;
-        //     }else {
-        //         console.log('user not logged in!');
-        //         this.router.navigate[('/login')];
-        //     }
-        // }else {
-        //     return this.user.uid;
-        // }

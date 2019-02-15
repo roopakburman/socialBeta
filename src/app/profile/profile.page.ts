@@ -27,7 +27,9 @@ export class ProfilePage implements OnInit {
       this.posts = event.posts;
       this.userName = event.username;
       this.profilePic = event.profilePic;
+      
     })
+    
   }
 
   ngOnDestroy(): void {

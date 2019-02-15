@@ -29,7 +29,9 @@ export class UploaderPage implements OnInit {
   activeEffect: string = this.effects.effect1;
   busy: boolean = false;
 
-  @ViewChild('fileButton') fileButton;
+  @ViewChild('fileButton') fileButton: {
+    nativeElement: HTMLInputElement;
+  }
   constructor(
     public http: Http,
     public afStore: AngularFirestore,

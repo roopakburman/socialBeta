@@ -1,16 +1,20 @@
 .camera {
-    width: auto;
-    height: 400px;
+    width: 200px;
+    height: 200px;
     margin: 0 auto;
     background: black;
+    display: none;
     
 }
-// .fileBtn {
-//     opacity: 0;
-//     position: absolute;
-//     top: -100em;
-//     left: -100em;
-// }
+.ion-input.filebtn.sc-ion-input-md-h.sc-ion-input-md-s.hydrated {
+    opacity: 0;
+    top: -100em;
+    left: -100em;
+    
+}
+.btnUpload {
+    position: absolute;
+}
 .center{
     display: flex;
     height: 100%;

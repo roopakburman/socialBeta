@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Upload Image</ion-title>
+  <ion-toolbar color="dark">
+    <ion-title>Upload Images</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -9,12 +9,10 @@
   <div class=center *ngIf="!busy">
     <div class="camera"></div>
     <!-- Input with placeholder -->
-    <ion-input shape="round" color="primary" fill="outline" class="fileBtn" *ngIf="!imageURL"
-      placeholder="upload your images" type="file" (change)="fileChanged($event)" #fileButton></ion-input>
+    <ion-input type="file" *ngIf="!imageURL" (change)="fileChanged($event)" class="filebtn" #fileButton></ion-input>
 
-    <!-- <ion-button shape="round" color="primary" (change)="fileChanged($event)" *ngIf="!imageURL" fill="outline">Upload File</ion-button> -->
-
-
+    <ion-button shape="round" color="primary" class="btnUpload" (change)="uploadFile()" *ngIf="!imageURL" fill="outline">Upload Image
+    </ion-button>
     <div *ngIf="imageURL">
       <ion-grid>
         <ion-row>
