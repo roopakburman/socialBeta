@@ -4,6 +4,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+    <!-- <div id="" *ngIf="posts">
+        <div class="" *ngFor="let post of posts">
+    
+            <img (click)="goToPost(post)" class="main-image" src='https://ucarecdn.com/{{post}}/-/scale_crop/200x200/center/' />
 
+    
+        </div>
+      </div> -->
+      <ion-card *ngFor="let post of posts" color="light">
+          <ion-img src='https://ucarecdn.com/{{post.id}}/-/preview/{{effect}}'></ion-img>
+          <ion-card-content>
+            <ion-item (click)="toggleHeart()">
+              <ion-icon [name]="heartType"></ion-icon>
+              <ion-label>{{posts.author}} says: {{posts.desc}}</ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
 </ion-content>

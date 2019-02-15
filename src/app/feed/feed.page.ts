@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GetPostsService, userPosts } from '../getPosts.service';
 
 @Component({
   selector: 'app-feed',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedPage implements OnInit {
 
-  constructor() { }
+  posts: userPosts[];
+  constructor(public getPostsService: GetPostsService) {
+  }
+
 
   ngOnInit() {
+    this.getPostsService.getPosts().subscribe(res => {
+      this.posts = res;
+    });
   }
 
 }

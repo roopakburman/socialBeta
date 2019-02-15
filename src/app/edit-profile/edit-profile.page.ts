@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Http } from '@angular/http';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { UserService } from '../user.service';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Http } from '@angular/http';
+// import { http } from 'selenium-webdriver/http'
+
 
 @Component({
   selector: 'app-edit-profile',
@@ -65,7 +67,7 @@ export class EditProfilePage implements OnInit {
 
     this.http.post('https://upload.uploadcare.com/base/', data)
       .subscribe(event => {
-        console.log(event);
+        // console.log(event);
         const uuid = event.json().file;
         this.mainUser.update({
           profilePic: uuid
