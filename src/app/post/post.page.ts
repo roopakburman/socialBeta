@@ -44,7 +44,7 @@ export class PostPage implements OnInit {
   }
 
   goBack(){
-    console.log(this);
+    // console.log(this);
     // this.router.navigate[('/tabs')];
 
   }

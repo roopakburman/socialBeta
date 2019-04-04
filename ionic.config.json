@@ -1,5 +1,7 @@
 {
   "name": "socialBeta",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

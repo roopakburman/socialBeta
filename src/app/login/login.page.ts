@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase/app';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+
+
+
 
 @Component({
   selector: 'app-login',
@@ -11,38 +14,34 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
+
   username: string="";
   password: string="";
   constructor(
     public afAuth: AngularFireAuth,
     public user: UserService,
-    public router: Router
+    public router: Router,
+    private authService: AuthService
     
     ) { }
 
   ngOnInit() {
+    
   }
-
+  
+  initiateLogin(){
+    const {username, password} = this;
+    this.authService.login(username, password);
+    this.username='';
+    this.password='';
+  }
+  initiateGoogleLogin(){
+    this.authService.doGoogleLogin();
+  }
   goToRegister(){
     this.router.navigate(['/register']);
   }
+  
 
-  async login(){
-    const {username, password} = this;
-    try {
-      const res = await this.afAuth.auth.signInWithEmailAndPassword(username, password);
-      
-      if(res.user) {
-        this.user.setUser({
-          username,
-          uid: res.user.uid
-        })
-        this.router.navigate(['/tabs']);
-      }
-    
-    } catch(err){
-      console.dir(err);
-    }
 
-  }
 }

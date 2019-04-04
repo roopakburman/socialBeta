@@ -17,6 +17,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthService } from './auth.service';
 import { SharedModule } from './shared.module';
 import { GetPostsService } from './getPosts.service';
+import { AdMob } from '@ionic-native/admob-plus/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,7 +38,8 @@ import { GetPostsService } from './getPosts.service';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     UserService,
     AuthService,
-    GetPostsService
+    GetPostsService,
+    AdMob
 
   ],
   bootstrap: [AppComponent]

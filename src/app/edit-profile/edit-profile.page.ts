@@ -74,6 +74,7 @@ export class EditProfilePage implements OnInit {
         })
       })
 
+      // this.presentAlert('SUCCESS', 'Profile Pic Updated!');
       // this.busy = false;
   }
   async presentAlert(title: string, content: string){

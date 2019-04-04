@@ -1,0 +1,626 @@
+<ion-header>
+<ion-toolbar color="dark">
+        <ion-buttons slot="secondary">
+          <ion-button>
+            <ion-icon slot="icon-only" name="contact"></ion-icon>
+          </ion-button>
+          <ion-button>
+            <ion-icon slot="icon-only" name="search"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-title>Default Buttons</ion-title>
+        <ion-buttons slot="primary">
+          <ion-button color="secondary">
+            <ion-menu-button autoHide="false"></ion-menu-button>
+            <ion-icon slot="icon-only" name="more"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Floating Label</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Floating Label</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Floating Label</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Floating Label</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <!-- Textarea in an item with a floating label -->
+  <ion-item>
+    <ion-label position="floating">Description</ion-label>
+    <ion-textarea></ion-textarea>
+  </ion-item>
+
+  <!-- Checkboxes in a List -->
+  <ion-list>
+    <ion-item *ngFor="let entry of form">
+      <ion-label>{{entry.val}}</ion-label>
+      <ion-checkbox slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  <!-- Date time picker -->
+  <ion-item>
+    <ion-label>Date Picker --></ion-label>
+    <ion-datetime display-format="MMM DD, YYYY"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>Time Picker --></ion-label>
+    <ion-datetime display-format="HH:mm"></ion-datetime>
+  </ion-item>
+
+  <!-- Option boxes -->
+  <ion-list>
+    <ion-radio-group>
+      <ion-list-header>
+        Auto Manufacturers
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Cord</ion-label>
+        <ion-radio value="cord"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Duesenberg</ion-label>
+        <ion-radio value="duesenberg"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Hudson</ion-label>
+        <ion-radio value="hudson"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Packard</ion-label>
+        <ion-radio value="packard"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Studebaker</ion-label>
+        <ion-radio value="studebaker"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+
+  <ion-list>
+    <ion-radio-group>
+      <ion-list-header>
+        <ion-label>Name</ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Biff</ion-label>
+        <ion-radio slot="start" value="biff" checked></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Griff</ion-label>
+        <ion-radio slot="start" value="griff"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Buford</ion-label>
+        <ion-radio slot="start" value="buford"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <!-- Range Selector -->
+  <ion-list>
+    <ion-item>
+      <ion-range color="danger" pin="true"></ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-range min="-200" max="200" color="secondary" pin="true">
+        <ion-label slot="start">-200</ion-label>
+        <ion-label slot="end">200</ion-label>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-range min="20" max="80" step="2" pin="true">
+        <ion-icon size="small" slot="start" name="sunny"></ion-icon>
+        <ion-icon slot="end" name="sunny"></ion-icon>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-range min="1000" max="2000" step="100" snaps="true" color="secondary" pin="true"></ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-range dualKnobs="true" min="21" max="72" step="3" snaps="true" pin="true"></ion-range>
+    </ion-item>
+  </ion-list>
+
+
+  <!-- Segment buttons with text and click listeners -->
+  <ion-segment>
+    <ion-segment-button (ionSelect)="segmentButtonClicked($event)">
+      <ion-label>Friends</ion-label>
+    </ion-segment-button>
+    <ion-segment-button (ionSelect)="segmentButtonClicked($event)">
+      <ion-label>Enemies</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Segment buttons with the first checked and the last disabled -->
+  <ion-segment>
+    <ion-segment-button checked>
+      <ion-label>Paid</ion-label>
+    </ion-segment-button>
+    <ion-segment-button>
+      <ion-label>Free</ion-label>
+    </ion-segment-button>
+    <ion-segment-button disabled>
+      <ion-label>Top</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Segment buttons with values and icons -->
+  <ion-segment>
+    <ion-segment-button value="camera">
+      <ion-icon name="camera"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button value="bookmark">
+      <ion-icon name="bookmark"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Segment with a value that checks the last button -->
+  <ion-segment value="shared">
+    <ion-segment-button value="bookmarks">
+      <ion-label>Bookmarks</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="reading">
+      <ion-label>Reading List</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="shared">
+      <ion-label>Shared Links</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Label only -->
+  <ion-segment>
+    <ion-segment-button checked>
+      <ion-label>Item One</ion-label>
+    </ion-segment-button>
+    <ion-segment-button>
+      <ion-label>Item Two</ion-label>
+    </ion-segment-button>
+    <ion-segment-button>
+      <ion-label>Item Three</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Icon only -->
+  <ion-segment>
+    <ion-segment-button>
+      <ion-icon name="call"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button checked>
+      <ion-icon name="heart"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button>
+      <ion-icon name="pin"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Icon top -->
+  <ion-segment>
+    <ion-segment-button>
+      <ion-label>Item One</ion-label>
+      <ion-icon name="call"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button checked>
+      <ion-label>Item Two</ion-label>
+      <ion-icon name="heart"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button>
+      <ion-label>Item Three</ion-label>
+      <ion-icon name="pin"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Icon bottom -->
+  <ion-segment>
+    <ion-segment-button checked layout="icon-bottom">
+      <ion-icon name="call"></ion-icon>
+      <ion-label>Item One</ion-label>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-bottom">
+      <ion-icon name="heart"></ion-icon>
+      <ion-label>Item Two</ion-label>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-bottom">
+      <ion-icon name="pin"></ion-icon>
+      <ion-label>Item Three</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Icon start -->
+  <ion-segment>
+    <ion-segment-button checked layout="icon-start">
+      <ion-label>Item One</ion-label>
+      <ion-icon name="call"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start">
+      <ion-label>Item Two</ion-label>
+      <ion-icon name="heart"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-start">
+      <ion-label>Item Three</ion-label>
+      <ion-icon name="pin"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Icon end -->
+  <ion-segment>
+    <ion-segment-button checked layout="icon-end">
+      <ion-icon name="call"></ion-icon>
+      <ion-label>Item One</ion-label>
+    </ion-segment-button>
+    <ion-segment-button disabled layout="icon-end">
+      <ion-icon name="heart"></ion-icon>
+      <ion-label>Item Two</ion-label>
+    </ion-segment-button>
+    <ion-segment-button layout="icon-end">
+      <ion-icon name="pin"></ion-icon>
+      <ion-label>Item Three</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Disabled Segment -->
+  <ion-segment (ionChange)="segmentChanged($event)" disabled>
+    <ion-segment-button value="sunny" checked>
+      <ion-label>Sunny</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="rainy">
+      <ion-label>Rainy</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Segment with anchors -->
+  <ion-segment (ionChange)="segmentChanged($event)">
+    <ion-segment-button href="#dogs" value="dogs">
+      <ion-label>Dogs</ion-label>
+    </ion-segment-button>
+    <ion-segment-button href="#cats" value="cats">
+      <ion-label>Cats</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Scrollable Segment -->
+  <ion-segment scrollable>
+    <ion-segment-button>
+      <ion-icon name="home"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button checked>
+      <ion-icon name="heart"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button>
+      <ion-icon name="pin"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button>
+      <ion-icon name="star"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button>
+      <ion-icon name="call"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button>
+      <ion-icon name="globe"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button>
+      <ion-icon name="basket"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Segment with secondary color -->
+  <ion-segment (ionChange)="segmentChanged($event)" color="secondary">
+    <ion-segment-button value="standard">
+      <ion-label>Standard</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="hybrid">
+      <ion-label>Hybrid</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="sat">
+      <ion-label>Satellite</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- Segment in a toolbar -->
+  <ion-toolbar>
+    <ion-segment (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="camera">
+        <ion-icon name="camera"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="bookmark">
+        <ion-icon name="bookmark"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <!-- Segment with default selection -->
+  <ion-segment (ionChange)="segmentChanged($event)" value="javascript">
+    <ion-segment-button value="python">
+      <ion-label>Python</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="javascript">
+      <ion-label>Javascript</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+
+  <!-- ion-select Dropdown -->
+  <ion-list>
+    <ion-list-header>Single Selection</ion-list-header>
+
+    <ion-item>
+      <ion-label>Gender</ion-label>
+      <ion-select placeholder="Select One">
+        <ion-select-option value="f">Female</ion-select-option>
+        <ion-select-option value="m">Male</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Hair Color</ion-label>
+      <ion-select value="brown" okText="Okay" cancelText="Dismiss">
+        <ion-select-option value="brown">Brown</ion-select-option>
+        <ion-select-option value="blonde">Blonde</ion-select-option>
+        <ion-select-option value="black">Black</ion-select-option>
+        <ion-select-option value="red">Red</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+
+  <!-- MUltiple select -->
+  <ion-list>
+    <ion-list-header>Multiple Selection</ion-list-header>
+
+    <ion-item>
+      <ion-label>Toppings</ion-label>
+      <ion-select multiple="true" cancelText="Nah" okText="Okay!">
+        <ion-select-option value="bacon">Bacon</ion-select-option>
+        <ion-select-option value="olives">Black Olives</ion-select-option>
+        <ion-select-option value="xcheese">Extra Cheese</ion-select-option>
+        <ion-select-option value="peppers">Green Peppers</ion-select-option>
+        <ion-select-option value="mushrooms">Mushrooms</ion-select-option>
+        <ion-select-option value="onions">Onions</ion-select-option>
+        <ion-select-option value="pepperoni">Pepperoni</ion-select-option>
+        <ion-select-option value="pineapple">Pineapple</ion-select-option>
+        <ion-select-option value="sausage">Sausage</ion-select-option>
+        <ion-select-option value="Spinach">Spinach</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Pets</ion-label>
+      <ion-select multiple="true">
+        <ion-select-option value="bird" selected>Bird</ion-select-option>
+        <ion-select-option value="cat">Cat</ion-select-option>
+        <ion-select-option value="dog" selected>Dog</ion-select-option>
+        <ion-select-option value="honeybadger">Honey Badger</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <!-- Interface Options -->
+  <ion-list>
+    <ion-list-header>Interface Options</ion-list-header>
+
+    <ion-item>
+      <ion-label>Alert</ion-label>
+      <ion-select [interfaceOptions]="customAlertOptions" interface="alert" multiple="true" placeholder="Select One">
+        <ion-select-option value="bacon">Bacon</ion-select-option>
+        <ion-select-option value="olives">Black Olives</ion-select-option>
+        <ion-select-option value="xcheese">Extra Cheese</ion-select-option>
+        <ion-select-option value="peppers">Green Peppers</ion-select-option>
+        <ion-select-option value="mushrooms">Mushrooms</ion-select-option>
+        <ion-select-option value="onions">Onions</ion-select-option>
+        <ion-select-option value="pepperoni">Pepperoni</ion-select-option>
+        <ion-select-option value="pineapple">Pineapple</ion-select-option>
+        <ion-select-option value="sausage">Sausage</ion-select-option>
+        <ion-select-option value="Spinach">Spinach</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Popover</ion-label>
+      <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Select One">
+        <ion-select-option value="brown">Brown</ion-select-option>
+        <ion-select-option value="blonde">Blonde</ion-select-option>
+        <ion-select-option value="black">Black</ion-select-option>
+        <ion-select-option value="red">Red</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Action Sheet</ion-label>
+      <ion-select [interfaceOptions]="customActionSheetOptions" interface="action-sheet" placeholder="Select One">
+        <ion-select-option value="red">Red</ion-select-option>
+        <ion-select-option value="purple">Purple</ion-select-option>
+        <ion-select-option value="yellow">Yellow</ion-select-option>
+        <ion-select-option value="orange">Orange</ion-select-option>
+        <ion-select-option value="green">Green</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+
+  <!-- Ionic Toast -->
+
+  <ion-button (click)=presentToast(); color="primary" fill="clear" size="small" type="submit" expand="block" round
+    strong> Pair </ion-button>
+  <ion-button (click)=presentToastWithOptions(); color="primary" type="submit" expand="block" round strong> me Too
+  </ion-button>
+
+  <!-- Toggle -->
+  <!-- Default Toggle -->
+
+  <ion-list>
+    <ion-toggle></ion-toggle>
+  </ion-list>
+
+  <!-- Disabled Toggle -->
+  <ion-list>
+    <ion-toggle disabled></ion-toggle>
+  </ion-list>
+
+
+  <!-- Checked Toggle -->
+  <ion-list>
+    <ion-toggle checked></ion-toggle>
+  </ion-list>
+
+  <!-- Toggle Colors -->
+  <ion-list>
+    <ion-toggle color="primary"></ion-toggle>
+  </ion-list>
+  <ion-list>
+    <ion-toggle color="secondary"></ion-toggle>
+  </ion-list>
+  <ion-list>
+    <ion-toggle color="danger"></ion-toggle>
+  </ion-list>
+  <ion-list>
+    <ion-toggle color="light"></ion-toggle>
+  </ion-list>
+  <ion-list>
+    <ion-toggle color="dark"></ion-toggle>
+  </ion-list>
+
+  <!-- Toggles in a List -->
+  <ion-list>
+    <ion-item>
+      <ion-label>Pepperoni</ion-label>
+      <ion-toggle [(ngModel)]="pepperoni"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Sausage</ion-label>
+      <ion-toggle [(ngModel)]="sausage" disabled="true"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Mushrooms</ion-label>
+      <ion-toggle [(ngModel)]="mushrooms"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <!-- IOnic Text element -->
+  <ion-text color="secondary">
+      <h1>H1: The quick brown fox jumps over the lazy dog</h1>
+    </ion-text>
+    
+    <ion-text color="primary">
+      <h2>H2: The quick brown fox jumps over the lazy dog</h2>
+    </ion-text>
+    
+    <ion-text color="light">
+      <h3>H3: The quick brown fox jumps over the lazy dog</h3>
+    </ion-text>
+    
+    <ion-text color="danger">
+      <h4 >H4: The quick brown fox jumps over the lazy dog</h4>
+    </ion-text>
+    
+    <ion-text color="dark">
+      <h5>H5: The quick brown fox jumps over the lazy dog</h5>
+    </ion-text>
+    
+    <p>
+      I saw a werewolf with a Chinese menu in his hand.
+      Walking through the <ion-text color="danger"><sub>streets</sub></ion-text> of Soho in the rain.
+      He <ion-text color="primary"><i>was</i></ion-text> looking for a place called Lee Ho Fook's.
+      Gonna get a <ion-text color="secondary"><a>big dish of beef chow mein.</a></ion-text>
+      <ion-text color="danger"><ion-icon name="cut"></ion-icon></ion-text>
+    </p>
+
+    <!-- Badge -->
+    <!-- Default -->
+<ion-badge>99</ion-badge>
+
+<!-- Colors -->
+<ion-badge color="primary">11</ion-badge>
+<ion-badge color="secondary">22</ion-badge>
+<ion-badge color="tertiary">33</ion-badge>
+<ion-badge color="success">44</ion-badge>
+<ion-badge color="warning">55</ion-badge>
+<ion-badge color="danger">66</ion-badge>
+<ion-badge color="light">77</ion-badge>
+<ion-badge color="medium">88</ion-badge>
+<ion-badge color="dark">99</ion-badge>
+
+<!-- Item with badge on left and right -->
+<ion-item>
+  <ion-badge slot="start">11</ion-badge>
+  <ion-label>My Item</ion-label>
+  <ion-badge slot="end">22</ion-badge>
+</ion-item>
+
+<!-- Ionic Buttons -->
+<!-- Default -->
+<ion-button>Default</ion-button>
+
+<!-- Anchor -->
+<ion-button href="#">Anchor</ion-button>
+
+<!-- Colors -->
+<ion-button color="primary">Primary</ion-button>
+<ion-button color="secondary">Secondary</ion-button>
+<ion-button color="tertiary">Tertiary</ion-button>
+<ion-button color="success">Success</ion-button>
+<ion-button color="warning">Warning</ion-button>
+<ion-button color="danger">Danger</ion-button>
+<ion-button color="light">Light</ion-button>
+<ion-button color="medium">Medium</ion-button>
+<ion-button color="dark">Dark</ion-button>
+
+<!-- Expand -->
+<ion-button expand="full">Full Button</ion-button>
+<ion-button expand="block">Block Button</ion-button>
+
+<!-- Round -->
+<ion-button shape="round">Round Button</ion-button>
+
+<!-- Fill -->
+<ion-button expand="full" fill="outline">Outline + Full</ion-button>
+<ion-button expand="block" fill="outline">Outline + Block</ion-button>
+<ion-button shape="round" fill="outline">Outline + Round</ion-button>
+
+<!-- Icons -->
+<ion-button>
+  <ion-icon slot="start" name="star"></ion-icon>
+  Left Icon
+</ion-button>
+
+<ion-button>
+  Right Icon
+  <ion-icon slot="end" name="star"></ion-icon>
+</ion-button>
+
+<ion-button>
+  <ion-icon slot="icon-only" name="star"></ion-icon>
+</ion-button>
+
+<!-- Sizes -->
+<ion-button size="large">Large</ion-button>
+<ion-button>Default</ion-button>
+<ion-button size="small">Small</ion-button>
+
+</ion-content>

@@ -17,6 +17,7 @@
         <ion-col size="8">
           <p>{{userName}}</p>
           <ion-button shape="round" color="primary" routerLink="/tabs/edit-profile">Edit Profile</ion-button>
+          <ion-button shape="round" color="danger" (click)="initiateFirebaseLogout()">Logout Firebase</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

@@ -9,7 +9,10 @@ import { GetPostsService, userPosts } from '../getPosts.service';
 export class FeedPage implements OnInit {
   sub;
   posts: userPosts[];
-  constructor(public getPostsService: GetPostsService) {
+  constructor(
+    public getPostsService: GetPostsService
+    
+    ) {
   }
 
 
@@ -19,6 +22,7 @@ export class FeedPage implements OnInit {
       console.dir(this.posts);      
     });
 
+  
   }
 
   ngOnDestroy(): void {
